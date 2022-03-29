@@ -1,0 +1,146 @@
+* {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #82cdff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.winner-title {
+  color: #ffffff;
+  background-color: #0099ff;
+  width: 430px;
+  height: 74px;
+  border-radius: 12px 12px 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  font-size: 33px;
+}
+
+.score-box {
+  width: 949px;
+  height: 148px;
+  background-color: #0099ff;
+  border-radius: 17px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.player-name {
+  color: #ffffff;
+  font-size: 38px;
+  font-weight: 700;
+}
+
+.score {
+  background-color: #dbf1ff;
+  border-radius: 17px;
+  width: 131px;
+  height: 120px;
+  color: #0099ff;
+  font-size: 104px;
+  font-weight: 900;
+  text-align: center;
+}
+
+.small-vs {
+  color: #ffffff;
+  font-size: 58px;
+  font-weight: 900;
+  margin: 0 20px;
+}
+
+.battle-field {
+  margin-top: 56px;
+  height: 414px;
+  display: flex;
+}
+
+.options-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.button-option {
+  background-color: #0099ff;
+  color: #dbf1ff;
+  border-radius: 8px;
+  width: 220px;
+  height: 80px;
+  font-size: 44px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: 300ms;
+}
+
+.button-option:hover {
+  border: 1px solid #0099ff;
+  background-color: transparent;
+  color: #0099ff;
+}
+
+.field-box {
+  background-color: #0099ff;
+  border-radius: 17px;
+  width: 1313px;
+  height: 414px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 35px;
+  box-sizing: border-box;
+  margin: 0 20px;
+}
+
+.option-field {
+  background-color: #dbf1ff;
+  border-radius: 17px;
+  width: 464px;
+  height: 345px;
+}
+
+.big-vs {
+  color: #ffffff;
+  font-size: 104px;
+  font-weight: 900;
+}
+
+.config{
+    margin-top: 22px;
+    display: flex;
+    justify-content: center;
+}
+
+.button-config {
+  background-color: #0099ff;
+  border-radius: 6px;
+  width: 238px;
+  height: 69px;
+  color: #ffffff;
+  font-size: 33px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 300ms;
+  border: none;
+}
+
+.button-config:hover {
+  border: 1px solid #0099ff;
+  background-color: transparent;
+  color: #0099ff;
+}
+
+.button-reset{
+    margin-left: 101px;
+}
