@@ -157,3 +157,9 @@ body {
 .button-reset {
     margin-left: 101px;
 }
+
+.start {
+    border: 1px solid #0099ff;
+    background-color: transparent;
+    color: #0099ff;
+}

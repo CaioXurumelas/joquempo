@@ -11,10 +11,21 @@ const $fieldPlayer2 = document.querySelector(".field-02")
 
 const $winnerTitle = document.querySelector(".winner-title")
 
+const $scorePlayer1 = document.querySelector(".score-player1")
+const $scorePlayer2 = document.querySelector(".score-player2")
+
+const $buttonReset = document.querySelector(".button-reset")
+const $buttonStart = document.querySelector(".button-start")
+
 let movePlayer1 = ""
 let movePlayer2 = ""
 
 let gameResult = "null"
+
+let scorePlayer1 = 0
+let scorePlayer2 = 0
+
+let gameStart = false
 
 function verifyGame() {
     if (movePlayer1 == "stone" && movePlayer2 == "paper") {
@@ -44,44 +55,95 @@ function printGameResult() {
     }
 }
 
+function resetBattleField() {
+    $fieldPlayer1.innerHTML = ""
+    $fieldPlayer2.innerHTML = ""
+}
+
+function resetMoveVariables() {
+    movePlayer1 = ""
+    movePlayer2 = ""
+}
+
+function printScoreboard() {
+    $scorePlayer1.innerHTML = scorePlayer1
+    $scorePlayer2.innerHTML = scorePlayer2
+}
+
+function addPoint(winnerNumber) {
+    if (winnerNumber == 1) {
+        scorePlayer1++
+    }
+    if (winnerNumber == 2) {
+        scorePlayer2++
+    }
+}
+
+function resetScoreboard() {
+    $scorePlayer1.innerHTML = "00"
+    $scorePlayer2.innerHTML = "00"
+}
+
+function resetScoreVariables() {
+    scorePlayer1 = 0
+    scorePlayer2 = 0
+}
+
+function move(moveName, fieldNumber) {
+    if (gameStart) {
+        if (fieldNumber == 1) {
+            $fieldPlayer1.innerHTML = "<img class='move-image' src='./images/" + moveName + ".png' alt=''>"
+            movePlayer1 = moveName
+        } else if (fieldNumber == 2) {
+            $fieldPlayer2.innerHTML = "<img class='move-image' src='./images/" + moveName + ".png' alt=''>"
+            movePlayer2 = moveName
+        }
+        verifyGame()
+        printGameResult()
+        if (gameResult != null) {
+            setTimeout(resetBattleField, 2000)
+            resetMoveVariables()
+            addPoint(gameResult)
+            printScoreboard()
+            gameResult = null
+        }
+    }
+}
+
 $stoneButton1.addEventListener("click", function() {
-    $fieldPlayer1.innerHTML = "<img class='move-image' src='./images/stone.png' alt=''>"
-    movePlayer1 = "stone"
-    verifyGame()
-    printGameResult()
+    move("stone", 1)
 })
 
 $paperButton1.addEventListener("click", function() {
-    $fieldPlayer1.innerHTML = "<img class='move-image' src='./images/paper.png' alt=''>"
-    movePlayer1 = "paper"
-    verifyGame()
-    printGameResult()
+    move("paper", 1)
 })
 
 $scissorsButton1.addEventListener("click", function() {
-    $fieldPlayer1.innerHTML = "<img class='move-image' src='./images/scissors.png' alt=''>"
-    movePlayer1 = "scissors"
-    verifyGame()
-    printGameResult()
+    move("scissors", 1)
 })
 
 $stoneButton2.addEventListener("click", function() {
-    $fieldPlayer2.innerHTML = "<img class='move-image' src='./images/stone.png' alt=''>"
-    movePlayer2 = "stone"
-    verifyGame()
-    printGameResult()
+    move("stone", 2)
 })
 
 $paperButton2.addEventListener("click", function() {
-    $fieldPlayer2.innerHTML = "<img class='move-image' src='./images/paper.png' alt=''>"
-    movePlayer2 = "paper"
-    verifyGame()
-    printGameResult()
+    move("paper", 2)
 })
 
 $scissorsButton2.addEventListener("click", function() {
-    $fieldPlayer2.innerHTML = "<img class='move-image' src='./images/scissors.png' alt=''>"
-    movePlayer2 = "scissors"
-    verifyGame()
-    printGameResult()
+    move("scissors", 2)
+})
+
+$buttonReset.addEventListener("click", function() {
+    resetBattleField()
+    resetMoveVariables()
+    gameResult = null
+    resetScoreboard()
+    $winnerTitle.innerHTML = "Resultado"
+    resetScoreVariables()
+})
+
+$buttonStart.addEventListener("click", function() {
+    gameStart = !gameStart
+    $buttonStart.classList.toggle("start")
 })
